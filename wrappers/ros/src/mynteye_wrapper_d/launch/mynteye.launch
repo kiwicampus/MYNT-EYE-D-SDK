@@ -46,7 +46,7 @@
   <arg name="color_mode" default="$(arg color_raw)" />
   <!-- Note: must set DEPTH_RAW to get raw depth values for points -->
   <arg name="depth_mode" default="$(arg depth_raw)" />
-  <arg name="stream_mode" default="$(arg stream_2560x720)" />
+  <arg name="stream_mode" default="$(arg stream_640x480)" />
   <arg name="color_stream_format" default="$(arg stream_yuyv)" />
   <arg name="depth_stream_format" default="$(arg stream_yuyv)" />
   <arg name="depth_type" default="$(arg type_mono16)" />
@@ -85,7 +85,7 @@
 
   <!-- left topics -->
   <arg name="left_mono_topic"  default="$(arg mynteye)/left/image_mono" />
-  <arg name="left_color_topic" default="$(arg mynteye)/left/image_color" />
+  <arg name="left_color_topic" default="cam0/image_raw" />
   <!-- right topics -->
   <arg name="right_mono_topic"  default="$(arg mynteye)/right/image_mono" />
   <arg name="right_color_topic" default="$(arg mynteye)/right/image_color" />
@@ -94,7 +94,7 @@
   <!-- points topic -->
   <arg name="points_topic"  default="$(arg mynteye)/points/data_raw" />
   <!-- imu topic origin -->
-  <arg name="imu_topic"     default="$(arg mynteye)/imu/data_raw" />
+  <arg name="imu_topic"     default="imu0" />
   <!-- temp topic -->
   <arg name="temp_topic"    default="$(arg mynteye)/temp/data_raw" />
   <!-- imu topic processed -->
