@@ -34,7 +34,7 @@ fi
 _echo_s "Init deps"
 
 if [ "$HOST_OS" = "Linux" ]; then
-  _install_deps "$SUDO apt-get install" libv4l-dev libjpeg-dev libgtk-3-dev libusb-dev
+  _install_deps "$SUDO apt-get install -y" libv4l-dev libjpeg-dev libgtk-3-dev libusb-dev
 elif [ "$HOST_OS" = "Mac" ]; then
   _install_deps "brew install" libuvc
 elif [ "$HOST_OS" = "Win" ]; then
