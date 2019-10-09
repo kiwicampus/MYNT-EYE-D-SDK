@@ -119,7 +119,7 @@ tools: install
 ros: install
 ifeq ($(HOST_OS),Linux)
 	@$(call echo,Make $@)
-	@cd ./wrappers/ros && catkin_make
+	@cd ./wrappers/ros && catkin_make -j4
 endif
 
 cleanros:
