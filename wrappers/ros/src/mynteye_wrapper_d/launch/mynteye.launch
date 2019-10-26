@@ -32,7 +32,7 @@
   <!-- Device index -->
   <arg name="dev_index" default="0" />
   <!-- Framerate -->
-  <arg name="framerate" default="30" />
+  <arg name="framerate" default="15" />
 
   <!--
   Device mode
@@ -43,7 +43,7 @@
   -->
   <arg name="dev_mode" default="$(arg device_all)" />
 
-  <arg name="color_mode" default="$(arg color_raw)" />
+  <arg name="color_mode" default="$(arg color_rectified)" />
   <!-- Note: must set DEPTH_RAW to get raw depth values for points -->
   <arg name="depth_mode" default="$(arg depth_raw)" />
   <arg name="stream_mode" default="$(arg stream_640x480)" />
@@ -56,7 +56,7 @@
   <!-- Auto-white balance -->
   <arg name="state_awb" default="true" />
   <!-- IR intensity -->
-  <arg name="ir_intensity" default="4" />
+  <arg name="ir_intensity" default="0" />
   <!-- IR Depth Only -->
   <arg name="ir_depth_only" default="false" />
 
@@ -85,7 +85,7 @@
 
   <!-- left topics -->
   <arg name="left_mono_topic"  default="$(arg mynteye)/left/image_mono" />
-  <arg name="left_color_topic" default="cam0/image_raw" />
+  <arg name="left_color_topic" default="$(arg mynteye)/left/image_color" />
   <!-- right topics -->
   <arg name="right_mono_topic"  default="$(arg mynteye)/right/image_mono" />
   <arg name="right_color_topic" default="$(arg mynteye)/right/image_color" />
@@ -94,7 +94,7 @@
   <!-- points topic -->
   <arg name="points_topic"  default="$(arg mynteye)/points/data_raw" />
   <!-- imu topic origin -->
-  <arg name="imu_topic"     default="imu0" />
+  <arg name="imu_topic"     default="$(arg mynteye)/imu/data_raw" />
   <!-- temp topic -->
   <arg name="temp_topic"    default="$(arg mynteye)/temp/data_raw" />
   <!-- imu topic processed -->
@@ -103,7 +103,7 @@
   <arg name="pi"   value="3.1415926535897932" />
   <arg name="pi/2" value="1.5707963267948966" />
   <arg name="optical_rotate" value="0 0 0 -$(arg pi/2) 0 -$(arg pi/2)" />
-
+  
   <node pkg="tf" type="static_transform_publisher" name="b2l_m_broadcaster"
       args="$(arg optical_rotate) $(arg base_frame) $(arg left_mono_frame) 100" />
   <node pkg="tf" type="static_transform_publisher" name="b2l_c_broadcaster"
@@ -124,7 +124,7 @@
   <node pkg="tf" type="static_transform_publisher" name="b2temp_broadcaster"
       args="0 0 0 $(arg pi/2) 0 $(arg pi) $(arg base_frame) $(arg temp_frame) 50" />
   <node pkg="tf" type="static_transform_publisher" name="b2imu_processed_broadcaster"
-      args="0 0 0 $(arg pi/2) 0 $(arg pi) $(arg base_frame) $(arg imu_frame_processed) 50" />
+      args="0 0 0 $(arg pi/2) 0 $(arg pi) $(arg base_frame) $(arg imu_frame_processed) 50" /> 
   
   <arg name="mesh_file" default="D-0315.obj" />
 
