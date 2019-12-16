@@ -32,7 +32,7 @@
   <!-- Device index -->
   <arg name="dev_index" default="0" />
   <!-- Framerate -->
-  <arg name="framerate" default="30" />
+  <arg name="framerate" default="1" />
 
   <!--
   Device mode
@@ -133,6 +133,7 @@
     <!-- Camera params -->
     <param name="dev_index"     value="$(arg dev_index)" />
     <param name="framerate"     value="$(arg framerate)" />
+    <param name="ros_output_framerate"     value="$(arg framerate)" />
     <param name="dev_mode"      value="$(arg dev_mode)" />
     <param name="color_mode"    value="$(arg color_mode)" />
     <param name="depth_mode"    value="$(arg depth_mode)" />
